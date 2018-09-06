@@ -25,9 +25,10 @@ function transitionPage(el, groupOut, groupIn) {
 }
 /*************************************************************************/
 
+
 function delayedFadeOut(div, range) {
   // Your solution here
-  fadeOut(div)
+  setTimeout(fadeOut(div), range)
 }
 
 function delayedFadeIn(div, range) {
@@ -38,7 +39,12 @@ function delayedFadeIn(div, range) {
 function fadeAllOut(el, group) {
   // Your solution here
   group.forEach(div => {
-    delayedFadeOut(div)
+    let time = 1000
+    if (el === div) {
+      delayedFadeOut(el, time*1.5)
+    } else {
+    delayedFadeOut(div, time)
+    }
   })
 }
 
